@@ -1,31 +1,22 @@
 public class VariablesTheme {
     public static void main(String[] args) {
         System.out.println("1.Создание переменных и вывод их значений на консоль");
-        boolean sumTypeBoolean = true;
-        byte sumTypeByte = 127;
-        int sumTypeInt = 100;
-        short sumTypeShort = 11;
-        long sumTypeLong = 2100100100L;
-        char textTypeChar = 1065;
-        float sumTypeFloat = 2.335F;
-        double sumTypeDouble = 2.33;
-        System.out.println("Элементарные типы:\n" +
-                Boolean.TYPE + " " + sumTypeBoolean + "\n" +
-                Byte.TYPE + " " + sumTypeByte + "\n" +
-                Integer.TYPE + " " + sumTypeInt + "\n" +
-                Short.TYPE + " " + sumTypeShort + "\n" +
-                Long.TYPE + " " + sumTypeLong +
-                "\nChar " + textTypeChar + "\n" +
-                Float.TYPE + " " + sumTypeFloat + "\n" +
-                Double.TYPE + " " + sumTypeDouble);
-        double cpuFrequency = 2.40;
-        int cores = 2;
-        double romSize = 128.00;
-        double ramSize = 8.00;
-        System.out.println("\n\tЧастота процессора " + cpuFrequency + "GHz");
-        System.out.println("\tоперативная память " + ramSize + "GB");
-        System.out.println("\tпостоянная память " + romSize + "GB");
-        System.out.println("\tКолличество ядер " + cores);
+        double cpuFrequencyGHz = 2.40;
+        int numbersOfCores = 2;
+        short romSizeGB = 128;
+        byte ramSizeGB = 8;
+        float weightComputer = 1.7F;
+        char fingerprintScanner = 'N';
+        double screenDiagonal = 13.2;
+        boolean displayTouchscreen = false;
+        System.out.println("\tналичие Touchscreen " + displayTouchscreen);
+        System.out.println("\tчастота процессора " + cpuFrequencyGHz + "GHz");
+        System.out.println("\tоперативная память " + ramSizeGB + "GB");
+        System.out.println("\tпостоянная память " + romSizeGB + "GB");
+        System.out.println("\tколичество ядер " + numbersOfCores);
+        System.out.println("\tвес " + weightComputer + "кг");
+        System.out.println("\tдиагональ экрана " + screenDiagonal + "\"");
+        System.out.println("\tналичие сканера отпечатка " + fingerprintScanner);
 
         System.out.println("\n 2. Расчет стоимости товара со скидкой");
         double pricePen = 100.0;
@@ -66,22 +57,22 @@ public class VariablesTheme {
         System.out.println("\n\n5. Перестановка значений переменных");
         int number1 = 5;
         int number2 = 2;
-        System.out.println("\tИсходное значение: var1 = " + number1 +
-                " var2 = " + number2);
+        System.out.println("\tИсходное значение: var1 = " + number1 + " var2 = " +
+                number2);
         int number3 = number1;
         number1 = number2;
         number2 = number3;
         System.out.println("\t\t перестановка с помощью третьей переменной: var1 = " +
                 number1 + " var2 = " + number2);
-        System.out.println("\tИсходное значение: var1 = " + number1 +
-                " var2 = " + number2);
+        System.out.println("\tИсходное значение: var1 = " + number1 + " var2 = " +
+                number2);
         number1 += number2;
         number2 = number1 - number2;
-        number1 = number1 - number2;
+        number1 -= number2;
         System.out.println("\t\t с помощью арифметических операций: var1 = " +
                 number1 + " var2 = " + number2);
-        System.out.println("\tИсходное значение: var1 = " + number1 + " var2 = "
-                + number2);
+        System.out.println("\tИсходное значение: var1 = " + number1 + " var2 = " +
+                number2);
         number1 ^= number2;
         number2 ^= number1;
         number1 ^= number2;
@@ -89,11 +80,16 @@ public class VariablesTheme {
                 " var2= " + number2);
 
         System.out.println("6. Вывод символов и их кодов");
-        System.out.println("\t Код " + 35 + " символ " + (char) 35);
-        System.out.println("\t Код " + 38 + " символ " + (char) 38);
-        System.out.println("\t Код " + 64 + " символ " + (char) 64);
-        System.out.println("\t Код " + 94 + " символ " + (char) 94);
-        System.out.println("\t Код " + 95 + " символ " + (char) 95);
+        char codeOfSymbol35 = 35;
+        char codeOfSymbol38 = 38;
+        char codeOfSymbol64 = 64;
+        char codeOfSymbol94 = 94;
+        char codeOfSymbol95 = 95;
+        System.out.println("\t Код " + (byte) codeOfSymbol35 + " символ " + codeOfSymbol35);
+        System.out.println("\t Код " + (byte) codeOfSymbol38 + " символ " + codeOfSymbol38);
+        System.out.println("\t Код " + (byte) codeOfSymbol64 + " символ " + codeOfSymbol64);
+        System.out.println("\t Код " + (byte) codeOfSymbol94 + " символ " + codeOfSymbol94);
+        System.out.println("\t Код " + (byte) codeOfSymbol95 + " символ " + codeOfSymbol95);
 
         System.out.println("7. Вывод на консоль ASCII-арт Дюка");
         char space = ' ';
