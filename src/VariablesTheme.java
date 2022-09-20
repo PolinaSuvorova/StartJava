@@ -22,7 +22,6 @@ public class VariablesTheme {
         int cores = 2;
         double romSize = 128.00;
         double ramSize = 8.00;
-
         System.out.println("\n\tЧастота процессора " + cpuFrequency + "GHz");
         System.out.println("\tоперативная память " + ramSize + "GB");
         System.out.println("\tпостоянная память " + romSize + "GB");
