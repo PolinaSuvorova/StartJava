@@ -1,6 +1,6 @@
 public class VariablesTheme {
     public static void main(String[] args) {
-        System.out.println("1.Создание переменных и вывод их значений на консоль (это название задачи)");
+        System.out.println("1.Создание переменных и вывод их значений на консоль");
         boolean sumTypeBoolean = true;
         byte sumTypeByte = 127;
         int sumTypeInt = 100;
@@ -75,9 +75,9 @@ public class VariablesTheme {
                 number1 + " var2 = " + number2);
         System.out.println("\tИсходное значение: var1 = " + number1 +
                 " var2 = " + number2);
-        number1 += number2; // 2 + 5 = 7
-        number2 = number1 - number2; // 7 - 5 = 2
-        number1 = number1 - number2; // 7 + 3 = 5
+        number1 += number2;
+        number2 = number1 - number2;
+        number1 = number1 - number2;
         System.out.println("\t\t с помощью арифметических операций: var1 = " +
                 number1 + " var2 = " + number2);
         System.out.println("\tИсходное значение: var1 = " + number1 + " var2 = "
