@@ -1,6 +1,5 @@
 public class IfElseStatementTheme {
     public static void main(String[] args) {
-
         System.out.println("1.Перевод псевдокода на язык Java");
         int age = 45;
         boolean maleGender = true;
@@ -148,7 +147,7 @@ public class IfElseStatementTheme {
 
         if (percentHistory > maxPercent2 && percentHistory <= maxPercent3) {
             scoreHistory = 3;
-        } else if ( percentHistory > maxPercent3 && percentHistory <= maxPercent4) {
+        } else if (percentHistory > maxPercent3 && percentHistory <= maxPercent4) {
             scoreHistory = 4;
         } else if (percentHistory > maxPercent4) {
             scoreHistory = 5;
@@ -160,7 +159,7 @@ public class IfElseStatementTheme {
         } else if (percentProgramming > maxPercent4) {
             scoreProgramming = 5;
         }
-        int percentAverage = (percentProgramming + percentHistory ) / 2;
+        int percentAverage = (percentProgramming + percentHistory) / 2;
         if (percentAverage > maxPercent2 && percentAverage <= maxPercent3) {
             scoreAverage = 3;
         } else if (percentAverage > maxPercent3 && percentAverage <= maxPercent4) {
@@ -187,7 +186,7 @@ public class IfElseStatementTheme {
         int count1 = sumAll % 10;
         int count10limit = 5;
         System.out.println("\t Для суммы " + sumAll + " необходимо: " +
-                 count100 + " купюр по 100," +
+                count100 + " купюр по 100," +
                 "\t " + count10 + " купюр по 10," +
                 "\t " + count1 + " купюр по 1");
         if (count10 > count10limit) {
