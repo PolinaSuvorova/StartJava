@@ -6,7 +6,6 @@ public class IfElseStatementTheme {
         double height = 1.72;
         String name = "Иван";
         char firstLetterName;
-
         if (age > 20) {
             System.out.println("\tВозраст больше 20");
         } else {
@@ -37,11 +36,9 @@ public class IfElseStatementTheme {
         int maxNumber = num1;
         int minNumber = num1;
         if (num1 > num2) {
-            maxNumber = num1;
             minNumber = num2;
         } else if (num1 < num2) {
             maxNumber = num2;
-            minNumber = num1;
         }
         if (maxNumber != minNumber) {
             System.out.println("\t Максисмальное число " + maxNumber + " " +
