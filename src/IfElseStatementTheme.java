@@ -26,7 +26,7 @@ public class IfElseStatementTheme {
         } else if (name == 'I') {
             System.out.println("\tПервая буква имени I ");
         } else {
-            System.out.println("\tПервай буква имени не I и не M ");
+            System.out.println("\tПервая буква имени не I и не M ");
         }
 
         System.out.println("\n2.Поиск max и min числа");
@@ -63,20 +63,21 @@ public class IfElseStatementTheme {
         int srcNum1 = 300;
         int srcNum2 = 145;
         System.out.println("\tИсходные числа: " + srcNum1 + " и " + srcNum2);
-        boolean similarDigits = srcNum1 / 100 == srcNum2 / 100 ||
-                srcNum1 % 100 / 10 == srcNum2 % 100 / 10 ||
-                srcNum1 % 10 == srcNum2 % 10;
-        if (similarDigits) {
-            if (srcNum1 / 100 == srcNum2 / 100) {
-                System.out.println("\t\tРазряд 1  число " + srcNum1 / 100);
-            }
-            if (srcNum1 % 100 / 10 == srcNum2 % 100 / 10) {
-                System.out.println("\t\tРазряд 2 число " + (srcNum1 % 100) / 10);
-            }
-            if (srcNum1 % 10 == srcNum2 % 10) {
-                System.out.println("\t\tРазряд 3 число " + srcNum2 % 10);
-            }
-        } else {
+        boolean similarDigits = false;
+
+        if (srcNum1 / 100 == srcNum2 / 100) {
+            System.out.println("\t\tРазряд 1  число " + srcNum1 / 100);
+            similarDigits = true;
+        }
+        if (srcNum1 % 100 / 10 == srcNum2 % 100 / 10) {
+            System.out.println("\t\tРазряд 2 число " + (srcNum1 % 100) / 10);
+            similarDigits = true;
+        }
+        if (srcNum1 % 10 == srcNum2 % 10) {
+            System.out.println("\t\tРазряд 3 число " + srcNum2 % 10);
+            similarDigits = true;
+        }
+        if (!similarDigits) {
             System.out.println("\tОдинаковых цифр нет");
         }
 
@@ -137,17 +138,17 @@ public class IfElseStatementTheme {
         }
         int percentAverage = (percentProgramming + percentHistory) / 2;
         System.out.println("\tСредний процент " + percentAverage + "%");
-        int scoreAverage = ( scoreProgramming + scoreHistory )/2;
+        int scoreAverage = (scoreProgramming + scoreHistory) / 2;
         System.out.println("\tСредний балл " + scoreAverage);
 
         System.out.println("\n8.Расчет прибыли");
         double sumRent = 5_000.00;
         double sumSale = 9_000.00;
-        double costPrice = 9_000.00;
+        double costPrice = 4_000.00;
         double annualProfit = (sumSale - costPrice - sumRent) * 12;
-        if (annualProfit < 0) {
+        if (annualProfit <= 0) {
             System.out.println("\tприбыль за год: " + annualProfit);
-        }else{
+        } else {
             System.out.println("\tприбыль за год: +" + annualProfit);
         }
 
