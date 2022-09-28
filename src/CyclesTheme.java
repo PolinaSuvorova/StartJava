@@ -1,80 +1,76 @@
 public class CyclesTheme {
     public static void main(String[] args) {
         System.out.println("\n1.Подсчет суммы четных и нечетных чисел");
-        int beginLine = -10;
-        int endLine = 21;
-        int currentPoint = beginLine;
+        int startRange = -10;
+        int endRange = 21;
+        int currentPoint = startRange;
         int sumEven = 0;
         int sumOdd = 0;
-
         do {
             if (currentPoint % 2 == 0) {
                 sumEven += currentPoint;
             } else {
                 sumOdd += currentPoint;
             }
-
             currentPoint++;
-        } while (currentPoint <= endLine);
-        System.out.println("\tНа отрезке [" + beginLine + "," + endLine +
+        } while (currentPoint <= endRange);
+        System.out.println("\tНа отрезке [" + startRange + "," + endRange +
                 "]\n\t Сумма чётных чисел = " + sumEven +
                 "\n\t Сумма нечётных чисел = " + sumOdd);
 
         System.out.println("\n2.Вывод чисел в интервале (min и max) в порядке убывания");
-        int srcNumber1 = 10;
-        int srcNumber2 = 5;
-        int srcNumber3 = -1;
-        int minNumber = srcNumber1;
-        int maxNumber = srcNumber1;
-        if (srcNumber2 < minNumber) {
-            minNumber = srcNumber2;
+        int num1 = 10;
+        int num2 = 5;
+        int num3 = -1;
+        int min = num1;
+        int max = num1;
+        if (num2 < min) {
+            min = num2;
         }
-        if (srcNumber3 < minNumber) {
-            minNumber = srcNumber3;
+        if (num3 < min) {
+            min = num3;
         }
-        if (srcNumber2 > maxNumber) {
-            maxNumber = srcNumber2;
+        if (num2 > max) {
+            max = num2;
         }
-        if (srcNumber3 > maxNumber) {
-            maxNumber = srcNumber3;
+        if (num3 > max) {
+            max = num3;
         }
-        System.out.println("\tИнтервал  (" + minNumber + "," + maxNumber + ")");
+        System.out.println("\tИнтервал  (" + min + "," + max + ")");
         System.out.print("\tЧисла по убыванию: ");
-        for (int i = maxNumber; i >= minNumber; i--) {
-            if (i == maxNumber) {
+        for (int i = max; i >= min; i--) {
+            if (i == max) {
                 System.out.print(i);
-            } else if (i == srcNumber1 || i == srcNumber2 || i == srcNumber3) {
+            } else {
                 System.out.print(", " + i);
             }
         }
 
         System.out.println("\n\n3.Вывод реверсивного числа и суммы его цифр");
-        int initNumber = 1234;
-        int reverseNumber = 0;
-        int sumDigit = 0;
-        while (initNumber != 0) {
-            reverseNumber = reverseNumber * 10;
-            int numDiv = initNumber % 10;
-            sumDigit += numDiv;
-            reverseNumber = reverseNumber + numDiv;
-            initNumber = initNumber / 10;
+        int srcNumber = 1234;
+        int sumDigits = 0;
+        System.out.print("\tРеверсивное число: ");
+        while (srcNumber != 0) {
+            int digit = srcNumber % 10;
+            sumDigits += digit;
+            srcNumber /= 10;
+            System.out.print(digit);
         }
-        System.out.println("\tРеверсивное число: " + reverseNumber + "\n\t Сумма: " + sumDigit);
+        System.out.print("\n\tСумма: " + sumDigits);
 
-        System.out.println("\n4.Вывод чисел на консоль в несколько строк ");
-        int index1 = 0;
-        System.out.println(" числа в полуинтервале [ 1, 24 ) шаг 2");
+        System.out.println("\n\n4.Вывод чисел на консоль в несколько строк ");
+        System.out.println("числа в полуинтервале [ 1, 24 ) шаг 2");
+        int count = 0;
         for (int i = 1; i < 24; i += 2) {
-            index1++;
+            count++;
             System.out.printf("%5d", i);
-            if (index1 == 5) {
-                System.out.print("\n");
-                index1 = 0;
+            if (count == 5) {
+                System.out.println( );
+                count = 0;
             }
         }
-        if (index1 != 0) {
-            index1 = 5 - index1;
-            for (int i = 1; i <= index1; i++) {
+        if (count != 0) {
+            for (; 5 - count > 0; count++) {
                 System.out.printf("%5d", 0);
             }
         }
