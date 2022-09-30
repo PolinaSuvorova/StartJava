@@ -150,7 +150,6 @@ public class CyclesTheme {
         srcNumber = 10001;
         copySrcNumber = srcNumber;
         int newNumber = 0;
-
         System.out.print("\tРеверсивное число: ");
         do {
             int digit = copySrcNumber % 10;
