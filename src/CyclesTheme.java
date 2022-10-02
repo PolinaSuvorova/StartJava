@@ -166,33 +166,31 @@ public class CyclesTheme {
 
         System.out.println("\n\n9.Проверка, является ли число счастливым");
         int luckyNumber = 211301;
-        int currentMod = luckyNumber;
-        int countNumber = 0;
-        int luckyPart1Sum = 0;
-        int luckyPart2Sum = 0;
+        int copyLuckyNumber = luckyNumber;
+        int countDigits = 0;
+        int sumHalfPartNumber = 0;
+        int sumMinorPartNumber = 0;
         int midle10 = 1;
-        int var1000 = 0;
-        while (var1000 != 0 || currentMod != 0) {
-            var1000 = currentMod % 10;
-            currentMod /= 10;
-            countNumber++;
+        while (copyLuckyNumber > 0) {
+            copyLuckyNumber /= 10;
+            countDigits++;
         }
-        currentMod = luckyNumber;
-        for (int i = 1; i <= countNumber; i++) {
-            int valDiv = currentMod % 10;
-            currentMod /= 10;
-            if (i <= countNumber / 2) {
-                luckyPart2Sum += valDiv;
+        copyLuckyNumber = luckyNumber;
+        for (int i = 1; i <= countDigits; i++) {
+            int digit = copyLuckyNumber % 10;
+            copyLuckyNumber /= 10;
+            if (i <= countDigits / 2) {
+                sumMinorPartNumber += digit;
                 midle10 *= 10;
             } else {
-                luckyPart1Sum += valDiv;
+                sumHalfPartNumber += digit;
             }
         }
         int luckyPart1 = luckyNumber / midle10;
         int luckyPart2 = luckyNumber % midle10;
-        System.out.printf("\tСумма цифр %d = %d", luckyPart1, luckyPart1Sum);
-        System.out.printf("\n\tСумма цифр %d = %d", luckyPart2, luckyPart2Sum);
-        if (luckyPart2Sum == luckyPart1Sum) {
+        System.out.printf("\tСумма цифр %d = %d", luckyPart1, sumHalfPartNumber);
+        System.out.printf("\n\tСумма цифр %d = %d", luckyPart2, sumMinorPartNumber);
+        if (sumMinorPartNumber == sumHalfPartNumber) {
             System.out.printf("\nчисло %d счастливое", luckyNumber);
         } else {
             System.out.printf("\nчисло %d несчастливое", luckyNumber);
@@ -200,6 +198,17 @@ public class CyclesTheme {
 
         System.out.println("\n\n10.Таблица Пифагора");
         for (int i = 1; i < 10; i++) {
+            if (i != 1) {
+                System.out.printf("%3d", i);
+            } else {
+                System.out.printf(" %3s", " |");
+            }
+        }
+        System.out.println();
+        for (int i = 1; i < 10; i++) {
+                  System.out.printf("%s", "---");
+        }
+        for (int i = 2; i < 10; i++) {
             System.out.println();
             for (int k = 1; k < 10; k++) {
                 if (i * k != 1) {
@@ -209,12 +218,6 @@ public class CyclesTheme {
                 }
                 if (k == 1) {
                     System.out.print("|");
-                }
-            }
-            if (i == 1) {
-                System.out.println();
-                for (int k = 0; k < 10; k++) {
-                    System.out.printf("%s", "---");
                 }
             }
         }
