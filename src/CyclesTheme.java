@@ -76,7 +76,7 @@ public class CyclesTheme {
         int copySrcNumber = scrNumber;
         int countOnes = 0;
         while (copySrcNumber != 0) {
-            long digit = copySrcNumber % 10;
+            int digit = copySrcNumber % 10;
             copySrcNumber /= 10;
             if (digit == 1) {
                 countOnes++;
@@ -149,22 +149,19 @@ public class CyclesTheme {
         System.out.println("\n8.Проверка, является ли число палиндромом");
         srcNumber = 10001;
         copySrcNumber = srcNumber;
-        int newNumber = 0;
+        int reversedNumber = 0;
         System.out.print("\tРеверсивное число: ");
         do {
-            int digit = copySrcNumber % 10;
+            reversedNumber += copySrcNumber % 10;
             copySrcNumber /= 10;
-            if (copySrcNumber == 0) {
-                newNumber += digit;
-            } else {
-                newNumber = (newNumber + digit) * 10;
+            if (copySrcNumber > 0) {
+               reversedNumber *= 10;
             }
-        }
-        while (copySrcNumber != 0);
-        if (newNumber == srcNumber) {
-            System.out.printf("число %d палиндром", newNumber);
+        } while (copySrcNumber > 0);
+        if (reversedNumber == srcNumber) {
+            System.out.printf("число %d палиндром", reversedNumber);
         } else {
-            System.out.printf("число %d не палиндром", newNumber);
+            System.out.printf("число %d не палиндром", reversedNumber);
         }
 
         System.out.println("\n\n9.Проверка, является ли число счастливым");
