@@ -35,8 +35,7 @@ public class Calculator {
             System.out.println("Знак вычисления " + sign + " не предусмотрен");
             return;
         }
-        System.out.println("a " + sign + " b = " + a + " " + sign + " " + b + " = "
-                + result);
+        System.out.println( sign + " " + b + " = " + result);
     }
 }
 
