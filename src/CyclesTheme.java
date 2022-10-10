@@ -196,31 +196,18 @@ public class CyclesTheme {
             System.out.printf("\nчисло %d несчастливое", luckyNumber);
         }
 
-        System.out.println("\n\n10.Таблица Пифагора");
-        for (int i = 1; i < 10; i++) {
-            if (i != 1) {
-                System.out.printf("%3d", i);
-            } else {
-                System.out.printf(" %3s", " |");
-            }
-        }
-        System.out.println();
-        for (int i = 1; i < 10; i++) {
-                  System.out.printf("%s", "---");
-        }
-        for (int i = 2; i < 10; i++) {
-            System.out.println();
+        System.out.println("\n\n10. Вывод таблицы умножения Пифагора");
+        for (int j = 1; j < 10; j++) {
             for (int k = 1; k < 10; k++) {
-                if (i * k != 1) {
-                    System.out.printf("%3d", i * k);
-                } else {
-                    System.out.printf("%3s", "");
-                }
+                System.out.printf("%4s", (k * j) + "  ");
                 if (k == 1) {
-                    System.out.print("|");
+                    System.out.print("| ");
                 }
             }
+            System.out.println();
+            if (j == 1) {
+                System.out.println("------------------------------------");
+            }
         }
-
     }
 }
