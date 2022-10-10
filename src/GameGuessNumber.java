@@ -15,6 +15,6 @@ public class GameGuessNumber {
                 step--;
             }
         }
-        System.out.println("Вы победили! и угадали число " + computerNumber);
+        System.out.println("Вы победили!");
     }
 }
