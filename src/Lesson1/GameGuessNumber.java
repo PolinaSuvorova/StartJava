@@ -1,3 +1,5 @@
+package Lesson1;
+
 public class GameGuessNumber {
     public static void main(String[] args) {
         int computerNumber = 44;
