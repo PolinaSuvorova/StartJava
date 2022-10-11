@@ -7,7 +7,7 @@ public class Wolf {
     private String color;
     private String gender;
 
-    public Wolf(int i, String вольт, int i1, String белый, String мальчик) {
+    public Wolf(int age, String nickname, int weight, String color,String gender) {
         this.age = age;
         this.nickname = nickname;
         this.weight = weight;
@@ -42,6 +42,7 @@ public class Wolf {
     public void run() {
         System.out.println("Бежит");
     }
+
     public void sit() {
         System.out.println("Сидит");
     }
