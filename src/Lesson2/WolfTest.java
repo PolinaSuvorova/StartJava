@@ -8,5 +8,10 @@ public class WolfTest {
         System.out.println( "Вес " + wolf.getWeight());
         System.out.println( "Цвет " + wolf.getColor());
         System.out.println( "Пол " + wolf.getGender());
+        wolf.go();
+        wolf.howl();
+        wolf.run();
+        wolf.sit();
+        wolf.hunt();
     }
 }
