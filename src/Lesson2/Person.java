@@ -1,8 +1,8 @@
 package Lesson2;
 public class Person {
-    private double height = 170.2;
+    private double height = 163.2;
     private double weight = 52.5;
-    private int age = 33;
+    private int age = 18;
     private String gender = "Женский";
     private String name = "Полина";
     void go() {
