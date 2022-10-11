@@ -5,6 +5,7 @@ public class Person {
     private int age = 18;
     private String gender = "Женский";
     private String name = "Полина";
+
     void go() {
         System.out.println("идти");
     }
