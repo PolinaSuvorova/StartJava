@@ -3,7 +3,7 @@ public class Calculator {
         int a = 3;
         int b = 0;
         int result;
-        char sign = '%';
+        char sign = '^';
         if (sign == '-') {
             result = a - b;
         } else if (sign == '+') {
@@ -26,16 +26,15 @@ public class Calculator {
             }
         } else if (sign == '^') {
             result = 1;
-            if (b != 0) {
-                for (int i = 1; i <= b; i++) {
-                    result *= a;
-                }
+
+            for (int i = 1; i <= b; i++) {
+                result *= a;
             }
         } else {
             System.out.println("Знак вычисления " + sign + " не предусмотрен");
             return;
         }
-        System.out.println( sign + " " + b + " = " + result);
+        System.out.println( a + " " + sign + " " + b + " = " + result);
     }
 }
 
