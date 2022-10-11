@@ -7,11 +7,27 @@ public class Wolf {
     private String color;
     private String gender;
 
-    public Wolf(int age, String nickname, int weight, String color,String gender) {
-        this.age = age;
+    public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+
+    public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    public void setAge(int age) {
+        if (age > 8) {
+            System.out.println("Некорректный возраст");
+        } else {
+            this.age = age;
+        }
+    }
+
+    public void setColor(String color) {
         this.color = color;
+    }
+
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
