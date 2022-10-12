@@ -11,11 +11,14 @@ public class JaegerTest {
         Jaeger gipsyDanger = new Jaeger("Gipsy Avenger", "Mark-3", 6,
                 2.0, 268);
 
+        System.out.println("\nJaeger1:  " + romeoBlue.getMark());
+        System.out.println("\nJaeger2:  " + gipsyDanger.getMark());
+
         romeoBlue.move();
         gipsyDanger.move();
         romeoBlue.activatePowerMove();
         gipsyDanger.activatePowerMove();
         romeoBlue.activateWeapon();
         gipsyDanger.activateWeapon();
-    }
+        }
 }

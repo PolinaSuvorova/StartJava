@@ -6,6 +6,7 @@ public class Jaeger {
     private double weight;
     private double height;
     private int armor;
+
     public Jaeger() {
 
     }
@@ -18,6 +19,7 @@ public class Jaeger {
         this.height = height;
         this.weight = weight;
     }
+
     public String getModelName() {
         return modelName;
     }
@@ -63,10 +65,10 @@ public class Jaeger {
     }
 
     public void activateWeapon() {
-        System.out.println("\nactivate weapon " + modelName);
+        System.out.println("\nactivate weapon  " + modelName);
     }
 
     public void activatePowerMove() {
-        System.out.println("\nactivate PowerMove " + modelName);
+        System.out.println("\nactivate PowerMove  " + modelName);
     }
 }
