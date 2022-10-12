@@ -1,4 +1,5 @@
 package Lesson2;
+
 public class Person {
     private double height = 163.2;
     private double weight = 52.5;

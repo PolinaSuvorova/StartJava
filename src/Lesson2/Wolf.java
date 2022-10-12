@@ -11,8 +11,16 @@ public class Wolf {
         this.nickname = nickname;
     }
 
+    public String getNickname() {
+        return nickname;
+    }
+
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    public double getWeight() {
+        return weight;
     }
 
     public void setAge(int age) {
@@ -23,29 +31,22 @@ public class Wolf {
         }
     }
 
+    public int getAge() {
+        return age;
+    }
+
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public String getColor() {
+        return color;
     }
 
     public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getColor() {
-        return color;
-    }
 
     public String getGender() {
         return gender;
