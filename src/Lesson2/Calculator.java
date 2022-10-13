@@ -18,6 +18,7 @@ public class Calculator {
     }
 
     public boolean setB(int b) {
+        this.b = 0;
         if (checkDivision(b)) {
             this.b = b;
             return true;
