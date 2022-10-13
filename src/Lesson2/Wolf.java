@@ -47,7 +47,6 @@ public class Wolf {
         this.gender = gender;
     }
 
-
     public String getGender() {
         return gender;
     }
@@ -71,6 +70,4 @@ public class Wolf {
     public void howl() {
         System.out.println("Воет");
     }
-
-
 }

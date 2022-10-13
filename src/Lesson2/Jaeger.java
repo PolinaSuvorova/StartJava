@@ -8,7 +8,6 @@ public class Jaeger {
     private int armor;
 
     public Jaeger() {
-
     }
 
     public Jaeger(String modelName, String mark, int armor, double weight,

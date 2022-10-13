@@ -8,6 +8,7 @@ public class JaegerTest {
         romeoBlue.setHeight(255);
         romeoBlue.setWeight(7.7);
         romeoBlue.setModelName("Romeo Blue");
+
         Jaeger gipsyDanger = new Jaeger("Gipsy Avenger", "Mark-3", 6,
                 2.0, 268);
 
@@ -20,5 +21,5 @@ public class JaegerTest {
         gipsyDanger.activatePowerMove();
         romeoBlue.activateWeapon();
         gipsyDanger.activateWeapon();
-        }
+    }
 }
