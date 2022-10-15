@@ -1,4 +1,4 @@
-package Lesson2;
+package com.Lesson2;
 
 public class JaegerTest {
     public static void main(String[] args) {

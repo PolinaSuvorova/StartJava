@@ -1,4 +1,4 @@
-package com.startjava.Lesson1;
+package com.Lesson1.base;
 
 public class VariablesTheme {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Lesson2;
+package com.Lesson2;
 
 public class WolfTest {
     public static void main(String[] args) {
