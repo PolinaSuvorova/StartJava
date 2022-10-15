@@ -1,0 +1,2 @@
+module JavaEducation1 {
+}
