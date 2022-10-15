@@ -19,10 +19,11 @@ public class Calculator {
 
     public boolean setB(int b) {
         this.b = 0;
-        if (checkDivision(b)) {
+        if ((sign != '/' && sign != '%') || b != 0) {
             this.b = b;
             return true;
         }
+        System.out.println("\tДеление на 0 не предусмотрено");
         return false;
     }
 
@@ -31,15 +32,6 @@ public class Calculator {
     }
 
     public boolean setSign(char sign) {
-        this.sign = ' ';
-        if (checkSign(sign)) {
-            this.sign = sign;
-            return true;
-        }
-        return false;
-    }
-
-    private boolean checkSign(char sign) {
         if (sign == '+' || sign == '-' || sign == '*' || sign == '/' || sign == '^' || sign == '%') {
             this.sign = sign;
             return true;

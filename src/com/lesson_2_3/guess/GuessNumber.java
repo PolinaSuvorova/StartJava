@@ -14,17 +14,16 @@ public class GuessNumber {
 
     public void launch() {
         boolean exitFlag = false;
-        System.out.println("Начало игры:");
-        generatedNum = (int) Math.random();
-
+        System.out.println("Угадай число:");
+        generatedNum = (int) Math.floor(Math.random() * 100);
         Scanner scanInputNumber = new Scanner(System.in);
         do {
-            System.out.println("\t ваш ход: " + player1.getName());
+            System.out.print("\t Ваш ход " + player1.getName() + " -> ");
             player1.setNumber(scanInputNumber.nextInt());
             if (compareNumbers(player1)) {
                 exitFlag = true;
             } else {
-                System.out.println("\t ваш ход: " + player2.getName());
+                System.out.print("\t Ваш ход " + player2.getName() + " -> ");
                 player2.setNumber(scanInputNumber.nextInt());
                 if (compareNumbers(player2)) {
                     exitFlag = true;
@@ -39,9 +38,9 @@ public class GuessNumber {
             return true;
         }
         if (player.getNumber() > generatedNum) {
-            System.out.printf("Число %d больше того, что загадал компьютер", player.getNumber());
+            System.out.println("Число " + player.getNumber() + " больше того, что загадал компьютер " );
         } else {
-            System.out.printf("Число %d меньше того, что загадал компьютер", player.getNumber());
+            System.out.println("Число" + player.getNumber() + " меньше того, что загадал компьютер"  );
         }
         return false;
     }

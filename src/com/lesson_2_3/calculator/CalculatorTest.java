@@ -12,17 +12,17 @@ public class CalculatorTest {
         do {
             System.out.print("Введите первое число: ");
             calculator.setA(userInput.nextInt());
-            boolean goodSign = false;
+            boolean validSign = false;
             do {
                 System.out.print("Введите знак математической операции: ");
-                goodSign = calculator.setSign(userInput.next().charAt(0));
-            } while (!goodSign);
+                validSign = calculator.setSign(userInput.next().charAt(0));
+            } while (!validSign);
 
-            boolean goodB = false;
+            boolean validB = false;
             do {
                 System.out.print("Введите второе число: ");
-                goodB = calculator.setB(userInput.nextInt());
-            } while (!goodB);
+                validB = calculator.setB(userInput.nextInt());
+            } while (!validB);
 
             System.out.println("Результат выражения: " + calculator.getA() + calculator.getSign()
                     + calculator.getB() + "=" + calculator.calculate());
