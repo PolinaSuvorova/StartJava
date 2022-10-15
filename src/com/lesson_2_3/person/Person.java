@@ -1,4 +1,4 @@
-package com.Lesson2;
+package com.lesson_2_3.person;
 
 public class Person {
     private double height = 163.2;

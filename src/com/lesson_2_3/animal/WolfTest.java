@@ -1,4 +1,6 @@
-package com.Lesson2;
+package com.lesson_2_3.animal;
+
+import com.lesson_2_3.animal.Wolf;
 
 public class WolfTest {
     public static void main(String[] args) {

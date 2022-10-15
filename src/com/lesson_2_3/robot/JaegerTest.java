@@ -1,4 +1,6 @@
-package com.Lesson2;
+package com.lesson_2_3.robot;
+
+import com.lesson_2_3.robot.Jaeger;
 
 public class JaegerTest {
     public static void main(String[] args) {

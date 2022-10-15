@@ -1,4 +1,4 @@
-package com.Lesson2;
+package com.lesson_2_3.animal;
 
 public class Wolf {
     private String nickname;

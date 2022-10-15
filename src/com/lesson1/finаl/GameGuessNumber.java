@@ -1,4 +1,4 @@
-package com.Lesson1.finаl;
+package com.lesson1.finаl;
 
 public class GameGuessNumber {
     public static void main(String[] args) {
