@@ -12,7 +12,7 @@ public class GuessNumber {
         this.player2 = player2;
     }
 
-    public void launch() {
+    public void play() {
         boolean exitFlag = false;
         System.out.println("Угадай число:");
         generatedNum = (int) Math.floor(Math.random() * 100);
