@@ -23,4 +23,5 @@ bin/
 ### Mac OS ###
 .DS_Store
 /.idea/
-/out/production/
+/out/
+
