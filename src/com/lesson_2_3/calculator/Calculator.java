@@ -18,7 +18,6 @@ public class Calculator {
     }
 
     public boolean setB(int b) {
-        this.b = 0;
         if ((sign != '/' && sign != '%') || b != 0) {
             this.b = b;
             return true;
@@ -40,14 +39,6 @@ public class Calculator {
         return false;
     }
 
-    private boolean checkDivision(int b) {
-        if ((sign != '/' && sign != '%') || b != 0) {
-            return true;
-        }
-        System.out.println("\tДеление на 0 не предусмотрено");
-        return false;
-    }
-
     public int calculate() {
         switch (sign) {
             case '+':
@@ -60,7 +51,7 @@ public class Calculator {
                 if (b != 0) {
                     return a / b;
                 }
-                return 0;
+                break;
             case '^':
                 int result = 1;
                 for (int i = 1; i <= b; i++) {
@@ -71,7 +62,7 @@ public class Calculator {
                 if (b != 0) {
                     return a % b;
                 }
-                return 0;
+                break;
         }
         return 0;
     }
