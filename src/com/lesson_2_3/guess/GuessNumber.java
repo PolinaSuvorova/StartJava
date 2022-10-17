@@ -40,8 +40,7 @@ public class GuessNumber {
         if (playerNumber > targetNum) {
             System.out.println("Число " + playerNumber + " больше того, что загадал компьютер ");
         } else {
-            System.out.println("Число " + playerNumber + " меньше того, что " +
-                    "загадал компьютер");
+            System.out.println("Число " + playerNumber + " меньше того, что загадал компьютер");
         }
         return false;
     }
