@@ -134,16 +134,14 @@ public class ArrayTheme {
 
     private static void printArray(String[] linesArray) {
         System.out.printf("|");
-        for (int i = 0; i < linesArray.length; i++) {
-            System.out.printf("%4s|", linesArray[i]);
+        for (String line : linesArray) {
+            System.out.printf("%4s|", line);
         }
-
         System.out.println();
     }
 
     private static double generateRandomNumber() {
-        int intNumber = (int) (Math.random() * 1000);
-        double doubleNumber = intNumber;
+        double doubleNumber = (int) (Math.random() * 1000);
         doubleNumber /= 1000;
         return doubleNumber;
     }
