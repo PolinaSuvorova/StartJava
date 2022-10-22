@@ -82,31 +82,31 @@ public class ArrayTheme {
 
         System.out.println("\n6. Сдвиг элементов массива");
         String[] lines = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
-        int countLinesNotNillable = 0;
+        int countLinesNotBlank = 0;
         for (String line : lines) {
             if (!line.isBlank()) {
-                countLinesNotNillable++;
+                countLinesNotBlank++;
             }
         }
         printArr(lines);
 
-        if (countLinesNotNillable != 0) {
-            String[] copyLines = new String[countLinesNotNillable];
-            countLinesNotNillable = 0;
-            int beginSourceIndex = 0;
-            int currentIndexCopyLines = 0;
+        if (countLinesNotBlank != 0) {
+            String[] copyLines = new String[countLinesNotBlank];
+            countLinesNotBlank = 0;
+            int beginSrcIndex = 0;
+            int indexCopyLines = 0;
             for (int i = 0; i < lines.length; i++) {
                 if (!lines[i].isBlank()) {
-                    countLinesNotNillable++;
-                    if (beginSourceIndex == 0) {
-                        beginSourceIndex = i;
+                    countLinesNotBlank++;
+                    if (beginSrcIndex == 0) {
+                        beginSrcIndex = i;
                     }
-                } else if (countLinesNotNillable > 0) {
-                    System.arraycopy(lines, beginSourceIndex, copyLines, currentIndexCopyLines,
-                            countLinesNotNillable);
-                    currentIndexCopyLines += countLinesNotNillable;
-                    beginSourceIndex = 0;
-                    countLinesNotNillable = 0;
+                } else if (countLinesNotBlank > 0) {
+                    System.arraycopy(lines, beginSrcIndex, copyLines, indexCopyLines,
+                            countLinesNotBlank);
+                    indexCopyLines += countLinesNotBlank;
+                    beginSrcIndex = 0;
+                    countLinesNotBlank = 0;
                 }
             }
             printArr(copyLines);
