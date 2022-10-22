@@ -144,8 +144,7 @@ public class ArrayTheme {
         return (int) (min + (Math.random() * (max - min)));
     }
 
-    private static boolean checkUniqueNum(int[] numbers,
-                                          int checknum) {
+    private static boolean checkUniqueNum(int[] numbers, int checknum) {
         for (int num : numbers) {
             if (num == checknum) {
                 return false;
