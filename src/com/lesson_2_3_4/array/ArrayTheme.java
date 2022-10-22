@@ -89,7 +89,6 @@ public class ArrayTheme {
             }
         }
         printArr(lines);
-
         if (countLinesNotBlank != 0) {
             String[] copyLines = new String[countLinesNotBlank];
             countLinesNotBlank = 0;
