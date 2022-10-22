@@ -37,8 +37,7 @@ public class ArrayTheme {
         printArr(randomNums);
         double midleArrNum = randomNums[randomNums.length / 2];
         int countNilableNum = 0;
-        System.out.printf("Число из середины массива: %6.3f", midleArrNum +
-                "\n");
+        System.out.printf("Число из середины массива: %6.3f", midleArrNum + "\n");
         for (int i = 0; i < randomNums.length; i++) {
             if (randomNums[i] > midleArrNum) {
                 randomNums[i] = 0;
