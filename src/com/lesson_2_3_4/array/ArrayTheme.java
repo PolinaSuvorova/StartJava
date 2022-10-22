@@ -74,7 +74,7 @@ public class ArrayTheme {
             numsArr[i] = randomNum;
         }
         Arrays.sort(numsArr);
-        for (int i = 0; i < numsArr.length; i++) {
+        for (int i = 0; i < len; i++) {
             if (i % 10 == 0) {
                 System.out.println();
             }
