@@ -122,8 +122,9 @@ public class ArrayTheme {
     }
 
     private static void printArr(double[] numbers) {
-        for (int i = 0; i < numbers.length; i++) {
-            if (i == numbers.length / 2 + 1) {
+        int len = numbers.length;
+        for (int i = 0; i < len; i++) {
+            if (i == len / 2 + 1) {
                 System.out.println();
             }
             System.out.printf("%6.3f", numbers[i]);
