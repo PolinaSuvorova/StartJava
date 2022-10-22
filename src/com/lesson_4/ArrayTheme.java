@@ -136,6 +136,7 @@ public class ArrayTheme {
         for (String line : lines) {
             System.out.printf("%4s|", line);
         }
+
         System.out.println();
     }
 
