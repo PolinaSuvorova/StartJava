@@ -5,79 +5,78 @@ import java.util.Arrays;
 public class ArrayTheme {
     public static void main(String[] args) {
         System.out.println("\n1.Реверс значений массива");
-        int[] numbersArray = {5, 4, 6, 3, 1, 2, 7};
-        int indexElement = numbersArray.length - 1;
-        printArray(numbersArray);
-        for (int i = 0; i < (numbersArray.length) / 2; i++) {
-            int localElement = numbersArray[i];
-            numbersArray[i] = numbersArray[indexElement];
-            numbersArray[indexElement] = localElement;
-            indexElement--;
+        int[] numsArr = {5, 4, 6, 3, 1, 2, 7};
+        int len = numsArr.length - 1;
+        printArr(numsArr);
+        for (int i = 0; i < len / 2; i++, len--) {
+            int tmp = numsArr[i];
+            numsArr[i] = numsArr[len];
+            numsArr[len] = tmp;
         }
-        printArray(numbersArray);
+        printArr(numsArr);
 
         System.out.println("\n2. Вывод произведения элементов массива");
-        numbersArray = new int[10];
-        for (int i = 0; i < numbersArray.length; i++) {
-            numbersArray[i] = i;
+        numsArr = new int[10];
+        len = numsArr.length;
+        for (int i = 0; i < len; i++) {
+            numsArr[i] = i;
         }
-        int multiplicationNumber = 1;
-        for (int i = 1; i < numbersArray.length - 1; i++) {
-            multiplicationNumber *= numbersArray[i];
-            System.out.print(numbersArray[i] + (i != numbersArray.length - 2 ?
-                    " * " : " = " + multiplicationNumber + "\n"));
+        int multDigits = 1;
+        for (int i = 1; i < len - 1; i++) {
+            multDigits *= numsArr[i];
+            System.out.print(numsArr[i] + (i != len - 2 ? " * " : " = " + multDigits));
         }
-        System.out.println(numbersArray[0] + " " + numbersArray[9]);
+        System.out.println("\n" + numsArr[0] + " " + numsArr[9]);
 
         System.out.println("\n3. Удаление элементов массива");
-        double[] randomNumbers = new double[15];
-        for (int i = 0; i < randomNumbers.length; i++) {
-            randomNumbers[i] = generateRandomNumber();
+        double[] randomNums = new double[15];
+        for (int i = 0; i < randomNums.length; i++) {
+            randomNums[i] = Math.random();
         }
         System.out.println("Исходный массив:");
-        printArray(randomNumbers);
-        double midleArrayNumber = randomNumbers[randomNumbers.length / 2];
-        int countNilableNumber = 0;
-        System.out.printf("Число из середины массива: %6.3f", midleArrayNumber);
-        System.out.println();
-        for (int i = 0; i < randomNumbers.length; i++) {
-            if (randomNumbers[i] > midleArrayNumber) {
-                randomNumbers[i] = 0;
-                countNilableNumber++;
+        printArr(randomNums);
+        double midleArrNum = randomNums[randomNums.length / 2];
+        int countNilableNum = 0;
+        System.out.printf("Число из середины массива: %6.3f", midleArrNum +
+                "\n");
+        for (int i = 0; i < randomNums.length; i++) {
+            if (randomNums[i] > midleArrNum) {
+                randomNums[i] = 0;
+                countNilableNum++;
             }
         }
-        printArray(randomNumbers);
-        System.out.println("Всего обнулённых значений: " + countNilableNumber);
+        printArr(randomNums);
+        System.out.println("Всего обнулённых значений: " + countNilableNum);
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
-        char[] lettersArray = new char[26];
+        char[] lettersArr = new char[26];
         char letter = 'A';
-        for (int i = 0; i < lettersArray.length; i++) {
-            lettersArray[i] = letter;
+        for (int i = 0; i < lettersArr.length; i++) {
+            lettersArr[i] = letter;
             letter++;
         }
-        for (int i = lettersArray.length - 1; i >= 0; i--) {
-            for (int j = lettersArray.length - 1; j >= i; j--) {
-                System.out.print(lettersArray[j]);
+        for (int i = lettersArr.length - 1; i >= 0; i--) {
+            for (int j = lettersArr.length - 1; j >= i; j--) {
+                System.out.print(lettersArr[j]);
             }
             System.out.println();
         }
 
         System.out.println("5. Генерация уникальных чисел");
-        numbersArray = new int[30];
-        for (int i = 0; i < numbersArray.length; i++) {
+        numsArr = new int[30];
+        for (int i = 0; i < numsArr.length; i++) {
             int randomNum;
             do {
-                randomNum = generateRandomNumber(60, 100);
-            } while (!checkUniqueNumber(numbersArray, randomNum));
-            numbersArray[i] = randomNum;
+                randomNum = generateRandomNum(60, 100);
+            } while (!checkUniqueNum(numsArr, randomNum));
+            numsArr[i] = randomNum;
         }
-        Arrays.sort(numbersArray);
-        for (int i = 0; i < numbersArray.length; i++) {
+        Arrays.sort(numsArr);
+        for (int i = 0; i < numsArr.length; i++) {
             if (i % 10 == 0) {
                 System.out.println();
             }
-            System.out.printf("%4d", numbersArray[i]);
+            System.out.printf("%4d", numsArr[i]);
         }
 
         System.out.println("\n6. Сдвиг элементов массива");
@@ -89,7 +88,7 @@ public class ArrayTheme {
                 countLinesNotNillable++;
             }
         }
-        printArray(lines);
+        printArr(lines);
 
         if (countLinesNotNillable != 0) {
             String[] copyLines = new String[countLinesNotNillable];
@@ -103,57 +102,51 @@ public class ArrayTheme {
                         beginSourceIndex = i;
                     }
                 } else if (countLinesNotNillable > 0) {
-                    System.arraycopy(lines, beginSourceIndex, copyLines, currentIndexCopyLines,
+                    System.arraycopy(lines, beginSourceIndex, copyLines,
+                            currentIndexCopyLines,
                             countLinesNotNillable);
                     currentIndexCopyLines += countLinesNotNillable;
                     beginSourceIndex = 0;
                     countLinesNotNillable = 0;
                 }
             }
-            printArray(copyLines);
+            printArr(copyLines);
         }
     }
 
-    private static void printArray(int[] numbersArray) {
-        for (int number : numbersArray
-        ) {
-            System.out.print(number + " ");
+    private static void printArr(int[] numbers) {
+        for (int num : numbers) {
+            System.out.print(num + " ");
         }
         System.out.println();
     }
 
-    private static void printArray(double[] numbersArray) {
-        for (int i = 0; i < numbersArray.length; i++) {
-            if (i == numbersArray.length / 2 + 1) {
+    private static void printArr(double[] numbers) {
+        for (int i = 0; i < numbers.length; i++) {
+            if (i == numbers.length / 2 + 1) {
                 System.out.println();
             }
-            System.out.printf("%6.3f", numbersArray[i]);
+            System.out.printf("%6.3f", numbers[i]);
         }
         System.out.println();
     }
 
-    private static void printArray(String[] linesArray) {
+    private static void printArr(String[] lines) {
         System.out.printf("|");
-        for (String line : linesArray) {
+        for (String line : lines) {
             System.out.printf("%4s|", line);
         }
         System.out.println();
     }
 
-    private static double generateRandomNumber() {
-        double doubleNumber = (int) (Math.random() * 1000);
-        doubleNumber /= 1000;
-        return doubleNumber;
-    }
-
-    private static int generateRandomNumber(int min, int max) {
+    private static int generateRandomNum(int min, int max) {
         return (int) (min + (Math.random() * (max - min)));
     }
 
-    private static boolean checkUniqueNumber(int[] numbersArray,
-                                             int checkNumber) {
-        for (int number : numbersArray) {
-            if (number == checkNumber) {
+    private static boolean checkUniqueNum(int[] numbers,
+                                          int checknum) {
+        for (int num : numbers) {
+            if (num == checknum) {
                 return false;
             }
         }
