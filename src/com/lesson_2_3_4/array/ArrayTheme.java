@@ -38,7 +38,7 @@ public class ArrayTheme {
         printArr(randomNums);
         double midleArrNum = randomNums[len / 2];
         int countNilableNum = 0;
-        System.out.printf("Число из середины массива: %6.3f\n",  midleArrNum );
+        System.out.printf("Число из середины массива: %6.3f\n", midleArrNum);
         for (int i = 0; i < len; i++) {
             if (randomNums[i] > midleArrNum) {
                 randomNums[i] = 0;
@@ -52,7 +52,7 @@ public class ArrayTheme {
         char[] lettersArr = new char[26];
         char letter = 'A';
         len = lettersArr.length;
-        for (int i = 0; i < len; i++,letter++) {
+        for (int i = 0; i < len; i++, letter++) {
             lettersArr[i] = letter;
         }
         for (int i = len - 1; i >= 0; i--) {
@@ -83,7 +83,7 @@ public class ArrayTheme {
         System.out.println("\n6. Сдвиг элементов массива");
         String[] lines = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
         int countLinesNotNillable = 0;
-        for (String line : lines ) {
+        for (String line : lines) {
             if (!line.isBlank()) {
                 countLinesNotNillable++;
             }
@@ -102,8 +102,7 @@ public class ArrayTheme {
                         beginSourceIndex = i;
                     }
                 } else if (countLinesNotNillable > 0) {
-                    System.arraycopy(lines, beginSourceIndex, copyLines,
-                            currentIndexCopyLines,
+                    System.arraycopy(lines, beginSourceIndex, copyLines, currentIndexCopyLines,
                             countLinesNotNillable);
                     currentIndexCopyLines += countLinesNotNillable;
                     beginSourceIndex = 0;
