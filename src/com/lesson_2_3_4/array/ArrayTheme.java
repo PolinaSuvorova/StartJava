@@ -30,15 +30,16 @@ public class ArrayTheme {
 
         System.out.println("\n3. Удаление элементов массива");
         double[] randomNums = new double[15];
-        for (int i = 0; i < randomNums.length; i++) {
+        len = randomNums.length;
+        for (int i = 0; i < len; i++) {
             randomNums[i] = Math.random();
         }
         System.out.println("Исходный массив:");
         printArr(randomNums);
-        double midleArrNum = randomNums[randomNums.length / 2];
+        double midleArrNum = randomNums[len / 2];
         int countNilableNum = 0;
         System.out.printf("Число из середины массива: %6.3f", midleArrNum + "\n");
-        for (int i = 0; i < randomNums.length; i++) {
+        for (int i = 0; i < len; i++) {
             if (randomNums[i] > midleArrNum) {
                 randomNums[i] = 0;
                 countNilableNum++;
