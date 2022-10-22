@@ -65,7 +65,8 @@ public class ArrayTheme {
 
         System.out.println("5. Генерация уникальных чисел");
         numsArr = new int[30];
-        for (int i = 0; i < numsArr.length; i++) {
+        len = numsArr.length;
+        for (int i = 0; i < len; i++) {
             int randomNum;
             do {
                 randomNum = generateRandomNum(60, 100);
