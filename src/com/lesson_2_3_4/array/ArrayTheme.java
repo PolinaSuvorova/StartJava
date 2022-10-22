@@ -1,4 +1,4 @@
-package com.lesson_4;
+package com.lesson_2_3_4.array;
 
 import java.util.Arrays;
 
@@ -136,7 +136,6 @@ public class ArrayTheme {
         for (String line : lines) {
             System.out.printf("%4s|", line);
         }
-
         System.out.println();
     }
 
