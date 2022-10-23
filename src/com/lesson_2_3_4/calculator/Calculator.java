@@ -39,28 +39,37 @@ public class Calculator {
         return false;
     }
 
+    public boolean initialize(String expression) {
+        boolean setResult;
+        String[] elementsExpression = expression.split(" ");
+        setA(Integer.parseInt(elementsExpression[0]));
+        setResult = setSign(elementsExpression[1].charAt(0));
+        if (!setResult) {
+            return false;
+        }
+        setResult = setB(Integer.parseInt(elementsExpression[2]));
+        return setResult;
+
+    }
+
     public int calculate() {
         switch (sign) {
             case '+':
-                return a + b;
+                return Math.addExact(a, b);
             case '-':
-                return a - b;
+                return Math.subtractExact(a, b);
             case '*':
-                return a * b;
+                return Math.multiplyExact(a, b);
             case '/':
                 if (b != 0) {
-                    return a / b;
+                    return Math.floorDiv(a, b);
                 }
                 break;
             case '^':
-                int result = 1;
-                for (int i = 1; i <= b; i++) {
-                    result *= a;
-                }
-                return result;
+                return (int) Math.pow(a, b);
             case '%':
                 if (b != 0) {
-                    return a % b;
+                    return Math.floorMod(a, b);
                 }
                 break;
         }
