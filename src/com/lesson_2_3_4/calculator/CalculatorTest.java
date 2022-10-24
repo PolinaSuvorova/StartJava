@@ -8,15 +8,15 @@ public class CalculatorTest {
         Scanner userInput = new Scanner(System.in);
         String userResponse;
         do {
-            boolean initCheck;
             do {
                 System.out.print("Введите математическое выражение: ");
                 String expression = userInput.nextLine();
-                initCheck = calculator.initialize(expression);
-            } while (!initCheck);
+                int result = calculator.calculate(expression);
+                if (!calculator.isError()) {
+                    System.out.println("Результат выражения: " + expression + "=" + result);
+                }
+            } while (!calculator.isError());
 
-            System.out.println("Результат выражения: " + calculator.getA() + calculator.getSign() +
-                    calculator.getB() + "=" + calculator.calculate());
 
             do {
                 System.out.print("\nХотите продолжить вычисления? [yes/no] ");

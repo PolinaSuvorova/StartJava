@@ -4,6 +4,7 @@ public class Calculator {
     private int a;
     private int b;
     private char sign;
+    private boolean error;
 
     public int getA() {
         return a;
@@ -15,6 +16,14 @@ public class Calculator {
 
     public int getB() {
         return b;
+    }
+
+    public boolean isError() {
+        return error;
+    }
+
+    public void setError(boolean error) {
+        this.error = error;
     }
 
     public boolean setB(int b) {
@@ -52,7 +61,12 @@ public class Calculator {
 
     }
 
-    public int calculate() {
+    public int calculate(String expression) {
+        setError(false);
+        if (!initialize(expression)) {
+            setError(true);
+            return 0;
+        }
         switch (sign) {
             case '+':
                 return Math.addExact(a, b);
