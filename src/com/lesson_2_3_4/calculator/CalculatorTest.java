@@ -13,9 +13,9 @@ public class CalculatorTest {
                 String expression = userInput.nextLine();
                 int result = calculator.calculate(expression);
                 if (!calculator.isError()) {
-                    System.out.println("Результат выражения: " + expression + "=" + result);
+                    System.out.println("Результат выражения: " + expression + " = " + result);
                 }
-            } while (!calculator.isError());
+            } while (calculator.isError());
             do {
                 System.out.print("\nХотите продолжить вычисления? [yes/no] ");
                 userResponse = userInput.nextLine();
