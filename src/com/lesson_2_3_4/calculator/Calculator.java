@@ -6,24 +6,8 @@ public class Calculator {
     private char sign;
     private boolean error;
 
-    public int getA() {
-        return a;
-    }
-
     public void setA(int a) {
         this.a = a;
-    }
-
-    public int getB() {
-        return b;
-    }
-
-    public boolean isError() {
-        return error;
-    }
-
-    public void setError(boolean error) {
-        this.error = error;
     }
 
     public boolean setB(int b) {
@@ -35,10 +19,13 @@ public class Calculator {
         return false;
     }
 
-    public char getSign() {
-        return sign;
+    public boolean isError() {
+        return error;
     }
 
+    public void setError(boolean error) {
+        this.error = error;
+    }
     public boolean setSign(char sign) {
         if (sign == '+' || sign == '-' || sign == '*' || sign == '/' || sign == '^' || sign == '%') {
             this.sign = sign;

@@ -16,8 +16,6 @@ public class CalculatorTest {
                     System.out.println("Результат выражения: " + expression + "=" + result);
                 }
             } while (!calculator.isError());
-
-
             do {
                 System.out.print("\nХотите продолжить вычисления? [yes/no] ");
                 userResponse = userInput.nextLine();
