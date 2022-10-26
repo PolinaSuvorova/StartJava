@@ -36,6 +36,4 @@ public class Player {
         Arrays.fill(numsAttempt, 0, countAttempts, 0);
         countAttempts = 0;
     }
-
-
 }
