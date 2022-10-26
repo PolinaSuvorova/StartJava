@@ -14,12 +14,15 @@ public class Player {
     public String getName() {
         return name;
     }
+
     public int getNum() {
         return numsAttempt[countAttempts - 1];
     }
+
     public int[] getNumsAttempt() {
         return Arrays.copyOf(numsAttempt, countAttempts);
     }
+
     public int getCountAttempts() {
         return countAttempts;
     }
@@ -28,10 +31,11 @@ public class Player {
         numsAttempt[countAttempts] = num;
         countAttempts++;
     }
-   public void destroyAttempts( ){
-       Arrays.fill(numsAttempt, 0, countAttempts, 0);
-       countAttempts = 0;
-   }
+
+    public void destroyAttempts() {
+        Arrays.fill(numsAttempt, 0, countAttempts, 0);
+        countAttempts = 0;
+    }
 
 
 }
