@@ -4,18 +4,20 @@ import java.util.Scanner;
 
 public class CalculatorTest {
     public static void main(String[] args) {
-        Calculator calculator = new Calculator();
         Scanner userInput = new Scanner(System.in);
         String userResponse;
         do {
-            do {
-                System.out.print("Введите математическое выражение: ");
-                String expression = userInput.nextLine();
-                int result = calculator.calculate(expression);
-                if (!calculator.isError()) {
+            while (true) {
+                try {
+                    System.out.print("Введите математическое выражение: ");
+                    String expression = userInput.nextLine();
+                    int result = Calculator.calculate(expression);
                     System.out.println("Результат выражения: " + expression + " = " + result);
+                    break;
+                } catch (Exception error) {
+                    System.out.println("\tОшибка: " + error.getMessage());
                 }
-            } while (calculator.isError());
+            }
             do {
                 System.out.print("\nХотите продолжить вычисления? [yes/no] ");
                 userResponse = userInput.nextLine();

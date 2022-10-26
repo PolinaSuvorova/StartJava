@@ -1,80 +1,51 @@
 package com.lesson_2_3_4.calculator;
 
 public class Calculator {
-    private int a;
-    private int b;
-    private char sign;
-    private boolean error;
+    private static int a;
+    private static int b;
+    private static char sign;
 
-    public void setA(int a) {
-        this.a = a;
+    public static void setA(int a) {
+        Calculator.a = a;
     }
 
-    public boolean setB(int b) {
+    public static void setB(int b) throws Exception {
         if ((sign != '/' && sign != '%') || b != 0) {
-            this.b = b;
-            return true;
+            Calculator.b = b;
+            return;
         }
-        System.out.println("\tДеление на 0 не предусмотрено");
-        return false;
+        throw new Exception("Деление на 0 не предусмотрено");
     }
 
-    public boolean isError() {
-        return error;
-    }
-
-    public void setError(boolean error) {
-        this.error = error;
-    }
-    public boolean setSign(char sign) {
+    public static void setSign(char sign) throws Exception {
         if (sign == '+' || sign == '-' || sign == '*' || sign == '/' || sign == '^' || sign == '%') {
-            this.sign = sign;
-            return true;
+            Calculator.sign = sign;
+            return;
         }
-        System.out.println("\tНедопустимый знак операции (* / + - % ^)");
-        return false;
+        throw new Exception("Недопустимый знак операции (* / + - % ^)");
     }
 
-    public boolean initialize(String expression) {
-        boolean setResult;
+    public static void initialize(String expression) throws Exception {
         String[] elementsExpression = expression.split(" ");
-        setA(Integer.parseInt(elementsExpression[0]));
-        setResult = setSign(elementsExpression[1].charAt(0));
-        if (!setResult) {
-            return false;
+        if (!elementsExpression[0].matches("\\d+") || !elementsExpression[2].matches("\\d+")) {
+            throw new Exception("Возможен ввод только целых, положительных чисел");
         }
-        setResult = setB(Integer.parseInt(elementsExpression[2]));
-        return setResult;
-
+        setA(Integer.parseInt(elementsExpression[0]));
+        setSign(elementsExpression[1].charAt(0));
+        setB(Integer.parseInt(elementsExpression[2]));
     }
 
-    public int calculate(String expression) {
-        setError(false);
-        if (!initialize(expression)) {
-            setError(true);
-            return 0;
-        }
-        switch (sign) {
-            case '+':
-                return Math.addExact(a, b);
-            case '-':
-                return Math.subtractExact(a, b);
-            case '*':
-                return Math.multiplyExact(a, b);
-            case '/':
-                if (b != 0) {
-                    return Math.floorDiv(a, b);
-                }
-                break;
-            case '^':
-                return (int) Math.pow(a, b);
-            case '%':
-                if (b != 0) {
-                    return Math.floorMod(a, b);
-                }
-                break;
-        }
-        return 0;
+    public static int calculate(String expression) throws Exception {
+        Calculator.initialize(expression);
+        return switch (sign) {
+            case '+' -> Math.addExact(a, b);
+            case '-' -> Math.subtractExact(a, b);
+            case '*' -> Math.multiplyExact(a, b);
+            case '/' -> Math.floorDiv(a, b);
+            case '^' -> (int) Math.pow(a, b);
+            case '%' -> Math.floorMod(a, b);
+            default -> 0;
+        };
     }
 }
 
