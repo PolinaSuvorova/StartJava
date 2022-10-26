@@ -16,7 +16,8 @@ public class GuessNumber {
     public void play() {
         destroyPlayerAttempts();
         System.out.println("Угадай число (у каждого игрока по 10 попыток)");
-        targetNum = (int) Math.floor(Math.random() * 100);
+        //targetNum = (int) Math.floor(Math.random() * 10);
+        targetNum = 10;
         try {
             do {
                 if (stepPlayer(player1)) {
@@ -29,10 +30,15 @@ public class GuessNumber {
         } catch (Exception error) {
             System.out.println("\t" + error.getMessage());
         }
-        System.out.println("Шаги " + player1.getName() + ": " +
-                            Arrays.toString(player1.getNumsAttempt()));
-        System.out.println("Шаги " + player2.getName() + ": " +
-                            Arrays.toString(player2.getNumsAttempt()));
+        showSteps( player1 );
+        showSteps( player2);
+    }
+    public void showSteps( Player player){
+        System.out.println("Шаги " + player.getName() + ":" );
+        for (int num: player.getNumsAttempt() ) {
+            System.out.print(" " + num );
+        }
+        System.out.println();
     }
 
     public boolean stepPlayer(Player player) throws Exception {
@@ -54,7 +60,7 @@ public class GuessNumber {
         int playerNum = player.getNum();
         if (playerNum == targetNum) {
             System.out.println("Игрок " + player.getName() + " угадал число " + targetNum +
-                    " с " + playerNum + " попытки");
+                    " с " + player.getCountAttempts() + " попытки");
             return true;
         }
         if (playerNum > targetNum) {
