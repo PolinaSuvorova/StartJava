@@ -1,6 +1,5 @@
 package com.lesson_2_3_4.guess;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class GuessNumber {
@@ -16,44 +15,42 @@ public class GuessNumber {
     public void play() {
         destroyPlayerAttempts();
         System.out.println("Угадай число (у каждого игрока по 10 попыток)");
-        //targetNum = (int) Math.floor(Math.random() * 10);
-        targetNum = 10;
-        try {
-            do {
-                if (stepPlayer(player1)) {
-                    break;
-                }
-                if (stepPlayer(player2)) {
-                    break;
-                }
-            } while (true);
-        } catch (Exception error) {
-            System.out.println("\t" + error.getMessage());
-        }
-        showSteps( player1 );
-        showSteps( player2);
-    }
-    public void showSteps( Player player){
-        System.out.println("Шаги " + player.getName() + ":" );
-        for (int num: player.getNumsAttempt() ) {
-            System.out.print(" " + num );
-        }
-        System.out.println();
-    }
+        targetNum = (int) Math.floor(Math.random() * 10);
 
-    public boolean stepPlayer(Player player) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        if (player.getCountAttempts() == 10) {
-            throw new Exception("У " + player.getName() + " закончились попытки");
-        }
-        System.out.print("\t Ваш ход " + player.getName() + " -> ");
-        player.enterNum(scanner.nextInt());
-        return compareNumbers(player);
+        do {
+            if (makeMovePlayer(player1)) {
+                break;
+            }
+            if (makeMovePlayer(player2)) {
+                break;
+            }
+        } while (true);
+        printPlayerNums(player1);
+        printPlayerNums(player2);
     }
 
     private void destroyPlayerAttempts() {
         player1.destroyAttempts();
         player2.destroyAttempts();
+    }
+
+    private boolean makeMovePlayer(Player player) {
+        Scanner scanner = new Scanner(System.in);
+        if (player.getCountAttempts() == 10) {
+            System.out.println("\tУ " + player.getName() + " закончились попытки");
+            return false;
+        }
+        System.out.print("\t Ваш ход " + player.getName() + " -> ");
+        player.addNum(scanner.nextInt());
+        return compareNumbers(player);
+    }
+
+    private void printPlayerNums(Player player) {
+        System.out.println("Шаги " + player.getName() + ":");
+        for (int num : player.getNums()) {
+            System.out.print(" " + num);
+        }
+        System.out.println();
     }
 
     private boolean compareNumbers(Player player) {
