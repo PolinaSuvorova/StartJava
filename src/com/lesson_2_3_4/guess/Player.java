@@ -27,9 +27,13 @@ public class Player {
         return countAttempts;
     }
 
-    public void addNum(int num) {
-        nums[countAttempts] = num;
-        countAttempts++;
+    public void addNum(int num) throws Exception {
+        if (num > 0 && num <= 100) {
+            nums[countAttempts] = num;
+            countAttempts++;
+            return;
+        }
+        throw new Exception("Число не входит в полуинтервал (0, 100]");
     }
 
     public void clearAttempts() {
