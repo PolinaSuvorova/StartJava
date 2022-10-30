@@ -44,6 +44,9 @@ public class Player {
     public void clearAttempts() {
         Arrays.fill(nums, 0, countAttempts, 0);
         countAttempts = 0;
+    }
+
+    public void clearScore() {
         scoreWin = 0;
     }
 }

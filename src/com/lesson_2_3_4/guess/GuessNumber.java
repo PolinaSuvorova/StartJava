@@ -27,22 +27,33 @@ public class GuessNumber {
     }
 
     public void play() {
-        clearPlayerAttempts();
         System.out.println("Угадай число (у каждого игрока по 10 попыток)");
-        targetNum = (int) (1 + Math.random() * 100);
-        while (!isGuessed()) {
-        }
-        printPlayerNums();
-        if (rounds == 3) {
-            printWinner();
+        while (rounds <= 3) {
+            rounds++;
+            System.out.println("Раунд " + rounds + "из 3");
+            clearPlayerAttempts();
+            targetNum = (int) (1 + Math.random() * 100);
+            while (!isGuessed()) {
+            }
+            printPlayerNums();
+            if (rounds == 3) {
+                printWinner();
+                clearPlayerScore();
+            }
             clearPlayerAttempts();
         }
+
     }
 
     private void clearPlayerAttempts() {
-        rounds = 0;
         for (Player player : players) {
             player.clearAttempts();
+        }
+    }
+
+    private void clearPlayerScore() {
+        for (Player player : players) {
+            player.clearScore();
         }
     }
 
@@ -101,13 +112,13 @@ public class GuessNumber {
             int scoreWinPlayer2 = players[i - 1].getScoreWin();
             if (scoreWinPlayer1 > scoreWinPlayer2) {
                 nameWinner = players[i].getName();
-            } else if ( scoreWinPlayer1 < scoreWinPlayer2 ) {
-                nameWinner = players[i-1].getName();
+            } else if (scoreWinPlayer1 < scoreWinPlayer2) {
+                nameWinner = players[i - 1].getName();
             }
         }
-        if ( nameWinner.isEmpty() ){
+        if (nameWinner.isEmpty()) {
             System.out.println("Ничья");
-        } else{
+        } else {
             System.out.println("Победил игрок " + nameWinner);
         }
 
