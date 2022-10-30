@@ -13,15 +13,12 @@ public class GuessNumber {
     }
 
     public void play() {
-        destroyPlayerAttempts();
+        clearPlayerAttempts();
         System.out.println("Угадай число (у каждого игрока по 10 попыток)");
         targetNum = (int) Math.floor(Math.random() * 10);
 
         do {
-            if (makeMovePlayer(player1)) {
-                break;
-            }
-            if (makeMovePlayer(player2)) {
+            if (isGuessed(player1) || isGuessed(player2)) {
                 break;
             }
         } while (true);
@@ -29,28 +26,20 @@ public class GuessNumber {
         printPlayerNums(player2);
     }
 
-    private void destroyPlayerAttempts() {
-        player1.destroyAttempts();
-        player2.destroyAttempts();
+    private void clearPlayerAttempts() {
+        player1.clearAttempts();
+        player2.clearAttempts();
     }
 
-    private boolean makeMovePlayer(Player player) {
-        Scanner scanner = new Scanner(System.in);
+    private boolean isGuessed(Player player) {
         if (player.getCountAttempts() == 10) {
             System.out.println("\tУ " + player.getName() + " закончились попытки");
             return false;
         }
+        Scanner scanner = new Scanner(System.in);
         System.out.print("\t Ваш ход " + player.getName() + " -> ");
         player.addNum(scanner.nextInt());
         return compareNumbers(player);
-    }
-
-    private void printPlayerNums(Player player) {
-        System.out.println("Шаги " + player.getName() + ":");
-        for (int num : player.getNums()) {
-            System.out.print(" " + num);
-        }
-        System.out.println();
     }
 
     private boolean compareNumbers(Player player) {
@@ -66,6 +55,14 @@ public class GuessNumber {
             System.out.println("Число " + playerNum + " меньше того, что загадал компьютер");
         }
         return false;
+    }
+
+    private void printPlayerNums(Player player) {
+        System.out.println("Шаги " + player.getName() + ":");
+        for (int num : player.getNums()) {
+            System.out.print(" " + num);
+        }
+        System.out.println();
     }
 }
 

@@ -32,7 +32,7 @@ public class Player {
         countAttempts++;
     }
 
-    public void destroyAttempts() {
+    public void clearAttempts() {
         Arrays.fill(nums, 0, countAttempts, 0);
         countAttempts = 0;
     }
