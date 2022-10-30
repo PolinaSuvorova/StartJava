@@ -6,6 +6,7 @@ public class Player {
     private String name;
     private int[] nums = new int[10];
     private int countAttempts;
+    private int scoreWin;
 
     public Player(String name) {
         this.name = name;
@@ -27,6 +28,10 @@ public class Player {
         return countAttempts;
     }
 
+    public int getScoreWin() {
+        return scoreWin;
+    }
+
     public void addNum(int num) throws Exception {
         if (num > 0 && num <= 100) {
             nums[countAttempts] = num;
@@ -39,5 +44,6 @@ public class Player {
     public void clearAttempts() {
         Arrays.fill(nums, 0, countAttempts, 0);
         countAttempts = 0;
+        scoreWin = 0;
     }
 }

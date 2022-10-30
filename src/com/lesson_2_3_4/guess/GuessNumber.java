@@ -8,6 +8,8 @@ public class GuessNumber {
     private int targetNum;
     private Player[] players;
 
+    private int rounds;
+
     public GuessNumber(Player... players) {
         this.players = players;
         int len = players.length;
@@ -17,11 +19,11 @@ public class GuessNumber {
             players[j] = players[i];
             players[i] = temp;
         }
-        System.out.println("Порядок ход игроков: ");
-        for ( Player player : players ) {
-            System.out.print( ' ' + player.getName());
+        System.out.println("Порядок хода игроков: ");
+        for (Player player : players) {
+            System.out.print(' ' + player.getName());
         }
-        System.out.println( );
+        System.out.println();
     }
 
     public void play() {
@@ -30,11 +32,15 @@ public class GuessNumber {
         targetNum = (int) (1 + Math.random() * 100);
         while (!isGuessed()) {
         }
-
         printPlayerNums();
+        if (rounds == 3) {
+            printWinner();
+            clearPlayerAttempts();
+        }
     }
 
     private void clearPlayerAttempts() {
+        rounds = 0;
         for (Player player : players) {
             player.clearAttempts();
         }
@@ -86,6 +92,25 @@ public class GuessNumber {
             }
             System.out.println();
         }
+    }
+
+    private void printWinner() {
+        String nameWinner = null;
+        for (int i = 0; i < players.length - 1; i++) {
+            int scoreWinPlayer1 = players[i].getScoreWin();
+            int scoreWinPlayer2 = players[i - 1].getScoreWin();
+            if (scoreWinPlayer1 > scoreWinPlayer2) {
+                nameWinner = players[i].getName();
+            } else if ( scoreWinPlayer1 < scoreWinPlayer2 ) {
+                nameWinner = players[i-1].getName();
+            }
+        }
+        if ( nameWinner.isEmpty() ){
+            System.out.println("Ничья");
+        } else{
+            System.out.println("Победил игрок " + nameWinner);
+        }
+
     }
 }
 

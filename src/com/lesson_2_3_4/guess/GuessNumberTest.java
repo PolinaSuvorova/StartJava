@@ -15,6 +15,7 @@ public class GuessNumberTest {
         System.out.print("игрок 3 введите имя: ");
         Player player3 = new Player(scanner.nextLine());
 
+
         GuessNumber guessGame = new GuessNumber(player1, player2, player3);
         String playerAnswer = "yes";
         while (playerAnswer.equals("yes")) {
