@@ -20,6 +20,15 @@ public class Player {
         return nums[countAttempts - 1];
     }
 
+    public void addNum(int num) throws RuntimeException {
+        if (checkNum( num )) {
+            nums[countAttempts] = num;
+            countAttempts++;
+            return;
+        }
+        throw new RuntimeException("Число не входит в полуинтервал (0, 100]");
+    }
+
     public int[] getNums() {
         return Arrays.copyOf(nums, countAttempts);
     }
@@ -32,15 +41,6 @@ public class Player {
         return scoreWin;
     }
 
-    public void addNum(int num) throws Exception {
-        if (num > 0 && num <= 100) {
-            nums[countAttempts] = num;
-            countAttempts++;
-            return;
-        }
-        throw new Exception("Число не входит в полуинтервал (0, 100]");
-    }
-
     public void clearAttempts() {
         Arrays.fill(nums, 0, countAttempts, 0);
         countAttempts = 0;
@@ -48,5 +48,8 @@ public class Player {
 
     public void clearScore() {
         scoreWin = 0;
+    }
+    private boolean checkNum( int num ){
+        return  (num > 0 || num <= 100) ? true : false;
     }
 }
