@@ -20,11 +20,11 @@ public class Player {
         return nums[countAttempts - 1];
     }
 
-    public void addNum(int num) throws RuntimeException {
-        if (checkNum( num )) {
+    public boolean addNum(int num) {
+        if (num > 0 && num <= 100) {
             nums[countAttempts] = num;
             countAttempts++;
-            return;
+            return true;
         }
         throw new RuntimeException("Число не входит в полуинтервал (0, 100]");
     }
@@ -48,8 +48,5 @@ public class Player {
 
     public void clearScore() {
         scoreWin = 0;
-    }
-    private boolean checkNum( int num ){
-        return  (num > 0 || num <= 100) ? true : false;
     }
 }

@@ -79,7 +79,7 @@ public class GuessNumber {
                 }
             }
             if (compareNumbers(player)) {
-                return compareNumbers(player);
+                return true;
             }
         }
         return false;
