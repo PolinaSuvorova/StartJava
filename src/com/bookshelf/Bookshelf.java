@@ -31,7 +31,7 @@ public class Bookshelf {
     public void addBook(Book book) {
         books[contBooksOnShelf] = book;
         contBooksOnShelf++;
-        calculateMaxLength( );
+        calculateMaxLength();
 
     }
 
@@ -46,7 +46,7 @@ public class Bookshelf {
 
     public Book findBook(String title) {
         int positionBook = findPositionBook(title);
-        if ( positionBook >= 0 ){
+        if (positionBook >= 0) {
             return books[positionBook];
         }
         return null;
