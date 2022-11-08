@@ -65,14 +65,14 @@ public class BookshelfTest {
         System.out.print("Год выпуска: ");
         int year = console.nextInt();
         Book newBook = new Book(author, name, year);
-        bookshelf.addBook(newBook);
+        bookshelf.add(newBook);
     }
 
     private static void deleteBook() {
         System.out.print("Название книги для удаления: ");
         String title = console.nextLine();
         try {
-            bookshelf.deleteBook(title);
+            bookshelf.delete(title);
         } catch (IllegalStateException e) {
             System.out.println("Ошибка удаления. " + e.getMessage());
         }
@@ -81,7 +81,7 @@ public class BookshelfTest {
     private static void findBook() {
         System.out.print("Введите название книги: ");
         String title = console.nextLine();
-        Book book = bookshelf.findBook(title);
+        Book book = bookshelf.find(title);
         System.out.println((book != null) ? book.toString() : ("Книга не найдена"));
     }
 
@@ -101,7 +101,7 @@ public class BookshelfTest {
         if (countBooks == 0) {
             System.out.println("\nШкаф пуст. Вы можете добавить в него первую книгу");
         } else {
-            int countFreeShelfs = bookshelf.getFreeShelf();
+            int countFreeShelfs = bookshelf.getFreeShelves();
             int maxLenght = bookshelf.getMaxLength();
             System.out.printf("\nШкаф содержит %d книг. Кол-во свободных полок %d .\n",
                     countBooks, countFreeShelfs);
