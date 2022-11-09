@@ -4,16 +4,16 @@ import java.util.Arrays;
 
 public class Bookshelf {
     private final int BOOKSHELF_LIMIT = 10;
-    private int contBooksOnShelf;
+    private int countBooksOnShelf;
     private int maxLength;
     private Book[] books = new Book[BOOKSHELF_LIMIT];
 
     public Book[] getBooks() {
-        return Arrays.copyOf(books, contBooksOnShelf);
+        return Arrays.copyOf(books, countBooksOnShelf);
     }
 
-    public int getContBooksOnShelf() {
-        return contBooksOnShelf;
+    public int getCountBooksOnShelf() {
+        return countBooksOnShelf;
     }
 
     public int getMaxLength() {
@@ -21,12 +21,12 @@ public class Bookshelf {
     }
 
     public int getFreeShelves() {
-        return BOOKSHELF_LIMIT - contBooksOnShelf;
+        return BOOKSHELF_LIMIT - countBooksOnShelf;
     }
 
     public void add(Book book) {
-        books[contBooksOnShelf] = book;
-        contBooksOnShelf++;
+        books[countBooksOnShelf] = book;
+        countBooksOnShelf++;
         calculateMaxLength();
     }
 
@@ -43,22 +43,26 @@ public class Bookshelf {
         if (index < 0) {
             throw new IllegalStateException("Книга не найдена");
         }
-        for (int i = index + 1; i < contBooksOnShelf; i++) {
-            books[i - 1] = books[i];
+        int length = books[index].toString().length();
+        countBooksOnShelf--;
+        System.arraycopy(books, index + 1, books, index, countBooksOnShelf - index);
+        if (length == maxLength) {
+            calculateMaxLength();
         }
-        books[contBooksOnShelf - 1] = null;
-        contBooksOnShelf--;
-        calculateMaxLength();
     }
 
     public void clear() {
-        Arrays.fill(books, 0, contBooksOnShelf, 0);
-        contBooksOnShelf = 0;
+        Arrays.fill(books, 0, countBooksOnShelf, 0);
+        countBooksOnShelf = 0;
+    }
+
+    public boolean isFull() {
+        return countBooksOnShelf == BOOKSHELF_LIMIT;
     }
 
     private void calculateMaxLength() {
         maxLength = 0;
-        for (int i = 0; i < contBooksOnShelf; i++) {
+        for (int i = 0; i < countBooksOnShelf; i++) {
             int lenghtString = books[i].toString().length();
             if (lenghtString > maxLength) {
                 maxLength = lenghtString;
@@ -66,12 +70,8 @@ public class Bookshelf {
         }
     }
 
-    public boolean isFull() {
-        return (contBooksOnShelf == BOOKSHELF_LIMIT ? true : false);
-    }
-
     private int findPosition(String title) {
-        for (int i = 0; i < contBooksOnShelf; i++) {
+        for (int i = 0; i < countBooksOnShelf; i++) {
             if (books[i].getTitle().equals(title)) {
                 return i;
             }

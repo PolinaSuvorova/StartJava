@@ -13,8 +13,8 @@ public class BookshelfTest {
 
     public static void main(String[] args) {
         bookshelf = new Bookshelf();
-        int event = 0;
-        while (event != EXIT) {
+        int event;
+        do {
             displayBookshelf();
             System.out.println("1. Добавить книгу");
             System.out.println("2. Удалить книгу");
@@ -28,7 +28,29 @@ public class BookshelfTest {
             } catch (IllegalStateException error) {
                 System.out.println(error.getMessage());
             }
+        } while (event != EXIT);
+    }
+
+    private static void displayBookshelf() {
+        int countBooks = bookshelf.getCountBooksOnShelf();
+
+        if (countBooks == 0) {
+            System.out.println("\nШкаф пуст. Вы можете добавить в него первую книгу");
+        } else {
+            int countFreeShelves = bookshelf.getFreeShelves();
+            int maxLength = bookshelf.getMaxLength();
+            System.out.printf("\nШкаф содержит %d книг. Кол-во свободных полок %d .\n",
+                    countBooks, countFreeShelves);
+            Book[] books = bookshelf.getBooks();
+            for (int i = 0; i < countBooks; i++) {
+                System.out.printf("|%" + (maxLength) + "s|%n", books[i]);
+                System.out.println("|" + "-".repeat(maxLength) + "|");
+            }
+            if (countFreeShelves != 0) {
+                System.out.println("|" + " ".repeat(maxLength) + "|");
+            }
         }
+        System.out.println();
     }
 
     private static void executeEvent(int event) {
@@ -82,38 +104,11 @@ public class BookshelfTest {
         System.out.print("Введите название книги: ");
         String title = console.nextLine();
         Book book = bookshelf.find(title);
-        System.out.println((book != null) ? book.toString() : ("Книга не найдена"));
+        System.out.println((book != null) ? book : ("Книга не найдена"));
     }
 
     private static void clearBookshelf() {
         bookshelf.clear();
         System.out.println("Шкаф очищен");
-    }
-
-    private static void pressEnter() {
-        System.out.print("Для продолжения работы нажмите Enter ");
-        console.nextLine();
-    }
-
-    private static void displayBookshelf() {
-        int countBooks = bookshelf.getContBooksOnShelf();
-
-        if (countBooks == 0) {
-            System.out.println("\nШкаф пуст. Вы можете добавить в него первую книгу");
-        } else {
-            int countFreeShelfs = bookshelf.getFreeShelves();
-            int maxLenght = bookshelf.getMaxLength();
-            System.out.printf("\nШкаф содержит %d книг. Кол-во свободных полок %d .\n",
-                    countBooks, countFreeShelfs);
-            Book[] books = bookshelf.getBooks();
-            for (int i = 0; i < bookshelf.getContBooksOnShelf(); i++) {
-                System.out.printf("|%" + (maxLenght) + "s|%n", books[i]);
-                System.out.println("|" + "-".repeat(maxLenght) + '|');
-            }
-            if (countFreeShelfs != 0) {
-                System.out.println("|" + " ".repeat(maxLenght) + "|");
-            }
-        }
-        System.out.println();
     }
 }
