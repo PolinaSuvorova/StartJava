@@ -7,16 +7,14 @@ SELECT *
 
 SELECT *
   FROM jaegers
- WHERE mark = 'Mark-1'
-    OR mark = 'Mark-4';
+ WHERE mark IN ('Mark-1', 'Mark-4');
 
 SELECT *
   FROM jaegers
- WHERE mark <> 'Mark-1'
-   AND mark <> 'Mark-4';
+ WHERE mark NOT IN ('Mark-1', 'Mark-4');
 
-SELECT *
-  FROM jaegers
+  SELECT *
+    FROM jaegers
 ORDER BY mark DESC;
 
 SELECT *
@@ -29,7 +27,7 @@ SELECT *
   FROM jaegers
  WHERE kaijukill =
        (SELECT MIN(kaijukill)
-       FROM jaegers);
+          FROM jaegers);
 
 SELECT *
   FROM jaegers
