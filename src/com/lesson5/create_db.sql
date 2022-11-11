@@ -1,4 +1,4 @@
-CREATE DATABASE Jaegers;
+CREATE DATABASE jaegers;
 \c jaegers;
 CREATE TABLE jaegers (
     id          SERIAL   NOT NULL PRIMARY KEY,
